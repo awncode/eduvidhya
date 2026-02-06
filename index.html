@@ -1,0 +1,2056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EduVidya - Professional Career Counseling & Guidance Services">
+    <title>EduVidya - Career Counseling & Guidance Excellence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== CSS VARIABLES ===== */
+        :root {
+            --primary-color: #0f4c3a;
+            --secondary-color: #e67e22;
+            --accent-color: #16a085;
+            --gold-accent: #d4af37;
+            --dark-bg: #1a1a1a;
+            --light-bg: #fefdfb;
+            --cream: #f8f6f0;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --white: #ffffff;
+            --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 5px 25px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.15);
+            --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.2);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --border-radius: 16px;
+        }
+
+        /* ===== GLOBAL RESET & BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        /* ===== UTILITY CLASSES ===== */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-spacing {
+            padding: 7rem 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(254, 253, 251, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(15, 76, 58, 0.08);
+        }
+
+        .header.scrolled {
+            box-shadow: var(--shadow-md);
+            background: rgba(254, 253, 251, 0.98);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            letter-spacing: -1px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-menu a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::before,
+        .nav-menu a.active::before {
+            width: 100%;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+
+        .cta-nav {
+            background: linear-gradient(135deg, var(--secondary-color), #f39c12);
+            color: var(--white);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(230, 126, 34, 0.3);
+        }
+
+        .cta-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(230, 126, 34, 0.4);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu-toggle span {
+            width: 28px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            margin-top: 85px;
+            min-height: 92vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--light-bg) 0%, var(--cream) 50%, #e8f5e9 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -10%;
+            right: -15%;
+            width: 70%;
+            height: 120%;
+            background: radial-gradient(circle, rgba(22, 160, 133, 0.12) 0%, transparent 70%);
+            animation: float 25s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -10%;
+            width: 60%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(230, 126, 34, 0.08) 0%, transparent 70%);
+            animation: float 30s ease-in-out infinite reverse;
+        }
+
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            padding: 3rem 0;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            letter-spacing: -2px;
+        }
+
+        .hero-content h1 .highlight {
+            color: var(--secondary-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-content h1 .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 8px;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: rgba(230, 126, 34, 0.2);
+            z-index: -1;
+            transform: skewY(-2deg);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            max-width: 580px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1.1rem 2.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), #16a085);
+            color: var(--white);
+            box-shadow: 0 8px 25px rgba(15, 76, 58, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(15, 76, 58, 0.35);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(15, 76, 58, 0.15);
+        }
+
+        .stat-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--secondary-color);
+            font-weight: 800;
+            margin-bottom: 0.3rem;
+        }
+
+        .stat-item p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 600px;
+        }
+
+        .hero-image-main {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 30px;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(135deg, rgba(15, 76, 58, 0.8), rgba(22, 160, 133, 0.7)),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23ffffff" opacity="0.05" width="1200" height="600"/><circle cx="600" cy="300" r="200" fill="%23ffffff" opacity="0.1"/></svg>');
+            background-size: cover;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: var(--white);
+            padding: 1.8rem 2.2rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            animation: floatCard 6s ease-in-out infinite;
+        }
+
+        .floating-card-1 {
+            top: 50px;
+            right: -30px;
+            animation-delay: 0s;
+        }
+
+        .floating-card-2 {
+            bottom: 80px;
+            left: -40px;
+            animation-delay: 1s;
+        }
+
+        .floating-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.4rem;
+            font-weight: 800;
+        }
+
+        .floating-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .floating-icon {
+            position: absolute;
+            font-size: 3rem;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .icon-1 {
+            top: 15%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .icon-2 {
+            top: 60%;
+            right: 15%;
+            animation-delay: 1s;
+        }
+
+        .icon-3 {
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 2s;
+        }
+
+        /* ===== FEATURES SECTION ===== */
+        .features {
+            background: var(--white);
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 5rem;
+        }
+
+        .section-label {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background: rgba(230, 126, 34, 0.1);
+            color: var(--secondary-color);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .section-description {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        .feature-card {
+            background: var(--light-bg);
+            padding: 3rem 2.5rem;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(15, 76, 58, 0.08);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(15, 76, 58, 0.15);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(15, 76, 58, 0.1), rgba(22, 160, 133, 0.15));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .feature-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        /* ===== SERVICES SECTION ===== */
+        .services {
+            background: linear-gradient(135deg, var(--cream) 0%, var(--light-bg) 100%);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 3.5rem;
+            border-radius: 25px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(22, 160, 133, 0.05) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .service-card:hover::after {
+            opacity: 1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .service-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 900;
+            color: rgba(230, 126, 34, 0.15);
+            line-height: 1;
+        }
+
+        .service-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .service-content p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .service-features li {
+            padding: 0.7rem 0;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* ===== PROCESS SECTION ===== */
+        .process {
+            background: var(--primary-color);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .process::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(22, 160, 133, 0.1) 0%, transparent 50%);
+        }
+
+        .process .section-label {
+            background: rgba(255, 255, 255, 0.15);
+            color: var(--white);
+        }
+
+        .process .section-title,
+        .process .section-description {
+            color: var(--white);
+        }
+
+        .process-timeline {
+            position: relative;
+            margin-top: 5rem;
+        }
+
+        .timeline-line {
+            position: absolute;
+            top: 50px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .timeline-progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+            width: 0%;
+            transition: width 1.5s ease;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            position: relative;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-circle {
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            position: relative;
+            z-index: 1;
+            transition: var(--transition);
+        }
+
+        .process-step:hover .step-circle {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: var(--accent-color);
+            transform: scale(1.1);
+        }
+
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent-color);
+        }
+
+        .process-step h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .process-step p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* ===== TESTIMONIALS SECTION ===== */
+        .testimonials {
+            background: var(--white);
+        }
+
+        .testimonials-slider {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .testimonial-card {
+            background: var(--light-bg);
+            padding: 3rem;
+            border-radius: 25px;
+            position: relative;
+            border: 1px solid rgba(15, 76, 58, 0.08);
+            transition: var(--transition);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .quote-icon {
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            font-size: 5rem;
+            color: rgba(230, 126, 34, 0.1);
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .author-avatar {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .author-info h4 {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .author-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .rating {
+            display: flex;
+            gap: 0.3rem;
+            margin-top: 0.5rem;
+        }
+
+        .rating span {
+            color: var(--gold-accent);
+            font-size: 1rem;
+        }
+
+        /* ===== STATS SECTION ===== */
+        .stats-section {
+            background: linear-gradient(135deg, var(--secondary-color), #f39c12);
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><circle cx="100" cy="100" r="80" fill="%23ffffff" opacity="0.05"/><circle cx="900" cy="300" r="120" fill="%23ffffff" opacity="0.05"/><circle cx="600" cy="200" r="100" fill="%23ffffff" opacity="0.05"/></svg>');
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-box {
+            text-align: center;
+            color: var(--white);
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            font-weight: 500;
+            opacity: 0.95;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            background: var(--primary-color);
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 70%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(22, 160, 133, 0.2) 0%, transparent 70%);
+        }
+
+        .cta-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .cta-content p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .cta-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .cta-input {
+            flex: 1;
+            min-width: 250px;
+            padding: 1.2rem 1.8rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: var(--white);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .cta-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .cta-input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--accent-color);
+        }
+
+        .btn-cta {
+            background: var(--white);
+            color: var(--primary-color);
+            padding: 1.2rem 3rem;
+            font-weight: 700;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--dark-bg);
+            color: var(--white);
+            padding: 5rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .footer-about {
+            max-width: 400px;
+        }
+
+        .footer-about p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+
+        .social-link:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+            transform: translateX(5px);
+        }
+
+        .footer-contact p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer-bottom {
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-bottom-links a {
+            color: rgba(255, 255, 255, 0.5);
+            transition: var(--transition);
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* ===== SCROLL TO TOP BUTTON ===== */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+            box-shadow: var(--shadow-md);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            33% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+            66% {
+                transform: translateY(-10px) rotate(-5deg);
+            }
+        }
+
+        @keyframes floatCard {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Scroll Reveal Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1200px) {
+            .hero-content h1 {
+                font-size: 4rem;
+            }
+            
+            .section-title {
+                font-size: 3rem;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 968px) {
+            .nav-menu {
+                position: fixed;
+                top: 85px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 85px);
+                background: rgba(254, 253, 251, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 3rem 2rem;
+                gap: 2rem;
+                transition: left 0.3s ease;
+                box-shadow: var(--shadow-md);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .mobile-menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(8px, 8px);
+            }
+
+            .mobile-menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -7px);
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-visual {
+                height: 450px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonials-slider {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 3rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .cta-content h2 {
+                font-size: 2.2rem;
+            }
+
+            .cta-form {
+                flex-direction: column;
+            }
+
+            .cta-input {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="header" id="header">
+        <nav class="nav-container">
+            <a href="#home" class="logo">
+                <div class="logo-icon">E</div>
+                <span>EduVidya</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#features" class="nav-link">Why Us</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#process" class="nav-link">Process</a></li>
+                <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                <li><a href="#contact" class="cta-nav">Get Started</a></li>
+            </ul>
+            <div class="mobile-menu-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="home">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1>
+                    Shape Your <span class="highlight">Dream Career</span> With Expert Guidance
+                </h1>
+                <p class="hero-subtitle">
+                    Discover your true potential with personalized career counseling. We combine psychometric 
+                    assessments, industry insights, and expert guidance to help you make informed decisions 
+                    about your future.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <span>Book Free Consultation</span>
+                        <span>→</span>
+                    </a>
+                    <a href="#services" class="btn btn-secondary">
+                        <span>Explore Services</span>
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3>10K+</h3>
+                        <p>Students Guided</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>98%</h3>
+                        <p>Success Rate</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>15+</h3>
+                        <p>Years Experience</p>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-image-main">
+                    <div class="floating-icon icon-1">🎓</div>
+                    <div class="floating-icon icon-2">📚</div>
+                    <div class="floating-icon icon-3">🎯</div>
+                </div>
+                <div class="floating-card floating-card-1">
+                    <h4>500+</h4>
+                    <p>Top Colleges</p>
+                </div>
+                <div class="floating-card floating-card-2">
+                    <h4>100%</h4>
+                    <p>Satisfaction</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FEATURES SECTION ===== -->
+    <section class="features section-spacing" id="features">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Why Choose Us</span>
+                <h2 class="section-title">Comprehensive Career Guidance</h2>
+                <p class="section-description">
+                    We provide end-to-end career counseling services backed by scientific assessments 
+                    and years of industry expertise.
+                </p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon">🧠</div>
+                    <h3>Psychometric Testing</h3>
+                    <p>
+                        Advanced psychometric assessments to identify your strengths, interests, 
+                        personality traits, and aptitudes for accurate career matching.
+                    </p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">👨‍🏫</div>
+                    <h3>Expert Counselors</h3>
+                    <p>
+                        Certified career counselors with 15+ years of experience across diverse 
+                        industries and educational domains.
+                    </p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Global Opportunities</h3>
+                    <p>
+                        Guidance for international education, work permits, scholarships, and 
+                        career pathways across 30+ countries.
+                    </p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">📊</div>
+                    <h3>Industry Insights</h3>
+                    <p>
+                        Real-time market analysis, emerging career trends, and salary benchmarks 
+                        to make data-driven decisions.
+                    </p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Personalized Support</h3>
+                    <p>
+                        One-on-one counseling sessions tailored to your unique goals, challenges, 
+                        and aspirations.
+                    </p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">🎯</div>
+                    <h3>End-to-End Assistance</h3>
+                    <p>
+                        Complete support from career exploration to college admissions, entrance 
+                        exam prep, and job placement.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES SECTION ===== -->
+    <section class="services section-spacing" id="services">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Our Services</span>
+                <h2 class="section-title">Comprehensive Career Solutions</h2>
+                <p class="section-description">
+                    From career discovery to successful placement, we offer a complete suite of services 
+                    to guide you at every step of your journey.
+                </p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="service-header">
+                        <div class="service-number">01</div>
+                        <div class="service-content">
+                            <h3>Career Counseling & Assessment</h3>
+                            <p>
+                                Comprehensive psychometric testing and personalized counseling sessions 
+                                to discover your ideal career path based on your interests, aptitudes, 
+                                and personality.
+                            </p>
+                            <ul class="service-features">
+                                <li>Detailed Psychometric Analysis</li>
+                                <li>One-on-One Expert Sessions</li>
+                                <li>Personalized Career Reports</li>
+                                <li>Aptitude & Interest Mapping</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-header">
+                        <div class="service-number">02</div>
+                        <div class="service-content">
+                            <h3>Academic Planning & Course Selection</h3>
+                            <p>
+                                Expert guidance on choosing the right stream, course, and institution 
+                                after 10th, 12th, or graduation based on your career goals and market demands.
+                            </p>
+                            <ul class="service-features">
+                                <li>Stream Selection Guidance</li>
+                                <li>Course Comparison & Analysis</li>
+                                <li>College Shortlisting</li>
+                                <li>Eligibility & Requirements</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-header">
+                        <div class="service-number">03</div>
+                        <div class="service-content">
+                            <h3>College Admission & Entrance Prep</h3>
+                            <p>
+                                Complete support for college applications, entrance exam preparation, 
+                                SOP writing, interview prep, and admission process navigation.
+                            </p>
+                            <ul class="service-features">
+                                <li>Entrance Exam Strategy</li>
+                                <li>Application Assistance</li>
+                                <li>SOP & Essay Writing</li>
+                                <li>Mock Interviews</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-header">
+                        <div class="service-number">04</div>
+                        <div class="service-content">
+                            <h3>Study Abroad Consulting</h3>
+                            <p>
+                                End-to-end guidance for international education including university selection, 
+                                application process, visa assistance, and scholarship opportunities.
+                            </p>
+                            <ul class="service-features">
+                                <li>Country & University Selection</li>
+                                <li>Visa Documentation Support</li>
+                                <li>Scholarship Guidance</li>
+                                <li>Post-Arrival Assistance</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-header">
+                        <div class="service-number">05</div>
+                        <div class="service-content">
+                            <h3>Career Development & Job Readiness</h3>
+                            <p>
+                                Professional skill development, resume building, LinkedIn optimization, 
+                                interview preparation, and job search strategies for successful placement.
+                            </p>
+                            <ul class="service-features">
+                                <li>Resume & LinkedIn Building</li>
+                                <li>Interview Training</li>
+                                <li>Soft Skills Development</li>
+                                <li>Job Search Strategy</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-header">
+                        <div class="service-number">06</div>
+                        <div class="service-content">
+                            <h3>Parent Counseling & Workshops</h3>
+                            <p>
+                                Specialized sessions for parents to understand modern career landscapes, 
+                                support their children's decisions, and navigate the changing education ecosystem.
+                            </p>
+                            <ul class="service-features">
+                                <li>Parent Guidance Sessions</li>
+                                <li>Career Trend Workshops</li>
+                                <li>Educational Pathway Insights</li>
+                                <li>Support Strategy Development</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROCESS SECTION ===== -->
+    <section class="process section-spacing" id="process">
+        <div class="container process-container">
+            <div class="section-header reveal">
+                <span class="section-label">Our Proven Process</span>
+                <h2 class="section-title">Your Journey To Success</h2>
+                <p class="section-description">
+                    A systematic, scientific approach to career planning that has helped thousands 
+                    of students achieve their dreams.
+                </p>
+            </div>
+            <div class="process-timeline">
+                <div class="timeline-line">
+                    <div class="timeline-progress" id="timelineProgress"></div>
+                </div>
+                <div class="process-steps">
+                    <div class="process-step reveal">
+                        <div class="step-circle">
+                            <div class="step-number">1</div>
+                        </div>
+                        <h3>Discovery & Assessment</h3>
+                        <p>
+                            Comprehensive psychometric testing and initial consultation to understand 
+                            your personality, interests, strengths, and aspirations.
+                        </p>
+                    </div>
+                    <div class="process-step reveal">
+                        <div class="step-circle">
+                            <div class="step-number">2</div>
+                        </div>
+                        <h3>Exploration & Analysis</h3>
+                        <p>
+                            Detailed exploration of career options, educational pathways, market trends, 
+                            and opportunities aligned with your profile.
+                        </p>
+                    </div>
+                    <div class="process-step reveal">
+                        <div class="step-circle">
+                            <div class="step-number">3</div>
+                        </div>
+                        <h3>Strategic Planning</h3>
+                        <p>
+                            Creation of a personalized roadmap with clear milestones, timelines, 
+                            and actionable steps to achieve your career goals.
+                        </p>
+                    </div>
+                    <div class="process-step reveal">
+                        <div class="step-circle">
+                            <div class="step-number">4</div>
+                        </div>
+                        <h3>Execution & Support</h3>
+                        <p>
+                            Continuous guidance and support through applications, exams, interviews, 
+                            and transitions until you achieve success.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS SECTION ===== -->
+    <section class="testimonials section-spacing" id="testimonials">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Success Stories</span>
+                <h2 class="section-title">What Our Students Say</h2>
+                <p class="section-description">
+                    Hear from students who transformed their careers with EduVidya's expert guidance 
+                    and personalized support.
+                </p>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonial-card reveal">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">
+                        "EduVidya helped me discover my passion for design when I was confused between 
+                        engineering and medicine. The psychometric tests and counseling sessions were 
+                        eye-opening. Today, I'm a successful UX designer at Google!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AS</div>
+                        <div class="author-info">
+                            <h4>Aditya Sharma</h4>
+                            <p>UX Designer, Google India</p>
+                            <div class="rating">
+                                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">
+                        "The study abroad counseling was exceptional! From university selection to visa 
+                        process, they guided me at every step. I received a full scholarship to MIT, and 
+                        I couldn't have done it without EduVidya's support."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">PR</div>
+                        <div class="author-info">
+                            <h4>Priya Reddy</h4>
+                            <p>MS Student, MIT USA</p>
+                            <div class="rating">
+                                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">
+                        "I was completely lost after 12th. EduVidya's career counseling not only helped 
+                        me choose the right course but also prepared me for entrance exams. Now I'm studying 
+                        at IIT Delhi, living my dream!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RK</div>
+                        <div class="author-info">
+                            <h4>Rahul Kumar</h4>
+                            <p>B.Tech Student, IIT Delhi</p>
+                            <div class="rating">
+                                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== STATS SECTION ===== -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <span class="stat-number" data-target="10000">0</span>
+                    <p class="stat-label">Students Counseled</p>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number" data-target="98">0</span>
+                    <p class="stat-label">Success Rate (%)</p>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number" data-target="500">0</span>
+                    <p class="stat-label">Partner Institutions</p>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number" data-target="15">0</span>
+                    <p class="stat-label">Years of Excellence</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA SECTION ===== -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <div class="cta-content reveal">
+                <h2>Ready to Transform Your Future?</h2>
+                <p>
+                    Book a free career counseling session today and take the first step towards 
+                    achieving your dreams. Our expert counselors are ready to guide you.
+                </p>
+                <form class="cta-form" id="ctaForm">
+                    <input 
+                        type="text" 
+                        class="cta-input" 
+                        placeholder="Your Name" 
+                        name="name"
+                        required
+                    >
+                    <input 
+                        type="email" 
+                        class="cta-input" 
+                        placeholder="Your Email" 
+                        name="email"
+                        required
+                    >
+                    <input 
+                        type="tel" 
+                        class="cta-input" 
+                        placeholder="Phone Number" 
+                        name="phone"
+                        required
+                    >
+                    <button type="submit" class="btn btn-cta">
+                        Book Free Session
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section footer-about">
+                    <h3>EduVidya</h3>
+                    <p>
+                        India's leading career counseling platform dedicated to helping students 
+                        discover their true potential and achieve their career aspirations through 
+                        scientific assessments and expert guidance.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📘</a>
+                        <a href="#" class="social-link">📷</a>
+                        <a href="#" class="social-link">🔗</a>
+                        <a href="#" class="social-link">🐦</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Why Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#process">Our Process</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Career Counseling</a></li>
+                        <li><a href="#">Course Selection</a></li>
+                        <li><a href="#">College Admission</a></li>
+                        <li><a href="#">Study Abroad</a></li>
+                        <li><a href="#">Job Readiness</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section footer-contact">
+                    <h3>Contact Us</h3>
+                    <p>📧 info@eduvidya.com</p>
+                    <p>📱 +91-9876543210</p>
+                    <p>📍 New Delhi, India</p>
+                    <p>🕐 Mon-Sat: 9AM - 6PM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 EduVidya. All Rights Reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCROLL TO TOP BUTTON ===== -->
+    <div class="scroll-top" id="scrollTop">↑</div>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // ===== MOBILE MENU TOGGLE =====
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileToggle.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileToggle.classList.remove('active');
+            });
+        });
+
+        // ===== HEADER SCROLL EFFECT =====
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // ===== SMOOTH SCROLLING =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = header.offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // ===== ACTIVE NAV LINK ON SCROLL =====
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.offsetHeight;
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // ===== SCROLL REVEAL ANIMATION =====
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            const revealPoint = 100;
+
+            revealElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                
+                if (elementTop < windowHeight - revealPoint) {
+                    element.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Initial check
+
+        // ===== COUNTER ANIMATION =====
+        const counters = document.querySelectorAll('.stat-number');
+        let counterAnimated = false;
+
+        const animateCounters = () => {
+            const statsSection = document.querySelector('.stats-section');
+            const sectionTop = statsSection.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+
+            if (sectionTop < windowHeight - 100 && !counterAnimated) {
+                counterAnimated = true;
+                
+                counters.forEach(counter => {
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    const increment = target / 100;
+                    let count = 0;
+
+                    const updateCounter = () => {
+                        count += increment;
+                        if (count < target) {
+                            counter.textContent = Math.ceil(count).toLocaleString();
+                            setTimeout(updateCounter, 20);
+                        } else {
+                            counter.textContent = target.toLocaleString() + (target === 98 ? '' : '+');
+                        }
+                    };
+
+                    updateCounter();
+                });
+            }
+        };
+
+        window.addEventListener('scroll', animateCounters);
+
+        // ===== TIMELINE PROGRESS ANIMATION =====
+        const timelineProgress = document.getElementById('timelineProgress');
+        
+        const animateTimeline = () => {
+            const processSection = document.querySelector('.process');
+            const sectionTop = processSection.getBoundingClientRect().top;
+            const sectionHeight = processSection.offsetHeight;
+            const windowHeight = window.innerHeight;
+
+            if (sectionTop < windowHeight && sectionTop > -sectionHeight) {
+                const progress = ((windowHeight - sectionTop) / (windowHeight + sectionHeight)) * 100;
+                const cappedProgress = Math.min(progress * 1.5, 100);
+                timelineProgress.style.width = cappedProgress + '%';
+            }
+        };
+
+        window.addEventListener('scroll', animateTimeline);
+
+        // ===== SCROLL TO TOP BUTTON =====
+        const scrollTopBtn = document.getElementById('scrollTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // ===== FORM SUBMISSION =====
+        const ctaForm = document.getElementById('ctaForm');
+
+        ctaForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(ctaForm);
+            const payload = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                phone: formData.get('phone')
+            };
+            try {
+                const origin = window.location.origin;
+                const apiBase = origin && origin.startsWith('http') ? origin : 'http://localhost:5000';
+                const res = await fetch(`${apiBase}/register`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                if (res.ok) {
+                    alert('Thank you for your interest! Our counselor will contact you within 24 hours.');
+                    ctaForm.reset();
+                } else {
+                    alert('Submission failed. Please try again later.');
+                }
+            } catch (err) {
+                alert('Unable to connect to the server. Please ensure the backend is running.');
+            }
+        });
+
+        // ===== PRELOAD CRITICAL RESOURCES =====
+        window.addEventListener('load', () => {
+            // Trigger initial animations
+            revealOnScroll();
+            animateCounters();
+            animateTimeline();
+        });
+
+        console.log('EduVidya website loaded successfully! 🎓');
+    </script>
+</body>
+</html>
